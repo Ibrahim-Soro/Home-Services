@@ -122,8 +122,39 @@
                             <li><a href="servicesbycategory/18.html">Home Automation</a></li>
                         </ul>
                     </li>
-                    <li class="login-form"> <a href="index.php/register.html" title="Register">Register</a></li>
-                    <li class="login-form"> <a href="login.html" title="Login">Login</a></li>
+                    @if(Route::has('login'))
+                        @auth
+                            @if (Auth::user()->utype === "ADM")
+                                <li class="login-form"> <a href="#" title="Register">Mon compte (Admin)</a>
+                                     <ul class="drop-down one-column hover-fade">
+                                        <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
+                                    </ul>
+                                </li>
+                            @elseif(Auth::user()->utype === "SVP")
+                                 <li class="login-form"> <a href="#" title="Register">Mon compte (Fournisseur)</a>
+                                     <ul class="drop-down one-column hover-fade">
+                                        <li><a href="{{ route('provider.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                 <li class="login-form"> <a href="#" title="Register">Mon compte (Client)</a>
+                                     <ul class="drop-down one-column hover-fade">
+                                        <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none">
+                                @csrf
+                            </form>
+                        @else
+                            <li class="login-form"> <a href="{{ route('register') }}" title="Register">S'inscrire</a></li>
+                            <li li class="login-form"> <a href="{{ route('login') }}" title="Login">Se connecter</a></li>
+                        @endauth
+                    @endif
+
                     <li class="search-bar">
                     </li>
                 </ul>
@@ -132,6 +163,7 @@
         {{-- Header and navbar --}}
 
         {{ $slot }}
+        {{-- Main content --}}
 
         <footer id="footer" class="footer-v1">
             <div class="container">
