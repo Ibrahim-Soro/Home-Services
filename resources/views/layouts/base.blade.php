@@ -125,27 +125,31 @@
                     @if(Route::has('login'))
                         @auth
                             @if (Auth::user()->utype === "ADM")
-                                <li class="login-form"> <a href="#" title="Register">Mon compte (Admin)</a>
+                                {{-- ADMIN LINKS --}}
+                                <li class="login-form"> <a href="#" title="Register">Mon Espace d'Administration</a>
                                      <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
                                     </ul>
                                 </li>
                             @elseif(Auth::user()->utype === "SVP")
-                                 <li class="login-form"> <a href="#" title="Register">Mon compte (Fournisseur)</a>
+                                {{-- SSERVICES PROVIDERS LINKS --}}
+                                <li class="login-form"> <a href="#" title="Register">Mon Espace Fournisseur</a>
                                      <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('provider.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
                                     </ul>
                                 </li>
                             @else
-                                 <li class="login-form"> <a href="#" title="Register">Mon compte (Client)</a>
+                                {{-- CUSTOMERS LINKS --}}
+                                <li class="login-form"> <a href="#" title="Register">Mon Espace Client</a>
                                      <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
                                     </ul>
                                 </li>
                             @endif
+                            {{-- LOGOUT FORM --}}
                             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none">
                                 @csrf
                             </form>
