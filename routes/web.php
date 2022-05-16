@@ -4,6 +4,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\Provider\ProviderDashboardComponent;
+use App\Http\Livewire\ServiceCategoriesComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Main Routes */
 Route::get('/', HomeComponent::class)->name('home');
+Route::get('service-categories', ServiceCategoriesComponent::class)->name('home.service_categories');
 
 /* Admin Routes */
 // For Customers
