@@ -93,10 +93,28 @@
                                         <input id="name" type="text" class="form-control" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">Adresse mail</label>
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" name="email" :value="old('email')" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Contact</label>
+                                    <div class="col-md-6">
+                                        <input id="phone" type="text" class="form-control" name="phone" value="" required="" autofocus="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="registeras" class="col-md-4 col-form-label text-md-right">Rôle</label>
+                                    <div class="col-md-6">
+                                        <select name="registeras" id="registeras" class="form-control">
+                                            <option value="CST">Utilisateur</option>
+                                            <option value="SVP">Fournisseur</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -107,6 +125,7 @@
                                         <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
                                     <label for="password_confirmation"
                                         class="col-md-4 col-form-label text-md-right">Confirmation</label>
@@ -114,6 +133,7 @@
                                         <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-10">
                                         <button type="submit" class="btn btn-primary pull-right">S'inscrire</button>
