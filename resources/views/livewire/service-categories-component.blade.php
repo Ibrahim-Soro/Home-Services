@@ -32,8 +32,12 @@
                         @foreach($scategories as $category)
                             <li>
                                 <div class="item-service-line">
-                                    <i class="fa"><a href="{{ asset('images/categories') }}/{{ $category->image }}"><img class="icon-img"
-                                                src="{{ asset('images/categories') }}/{{ $category->image }}" alt="AC"></a></i>
+                                    <i class="fa">
+                                        <a href="#">
+                                            <img class="icon-img"
+                                                src="{{ asset('images/categories') }}/{{ $category->image }}" alt="AC">
+                                            </a>
+                                        </i>
                                     <h5>{{ $category->name }}</h5>
                                 </div>
                             </li>
