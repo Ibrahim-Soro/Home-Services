@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Dashboard</title>
+        <title>Home Service - Dashboard</title>
 
         <!-- Custom fonts for this template-->
         <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -17,6 +17,7 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+        @livewireStyles
 
     </head>
 
@@ -32,7 +33,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Mon espace d'administration</div>
+                <div class="sidebar-brand-text mx-3">Admin Space</div>
                 </a>
 
                 <!-- Divider -->
@@ -47,9 +48,9 @@
                 </li>
 
                 <!-- Nav Item - Service Categories -->
-                <li class="nav-item {{ Request::routeIs('admin.service_categories') ? 'active':'' }}">
+                <li class="nav-item {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') ? 'active':'' }}">
                     <a class="nav-link" href="{{ route('admin.service_categories') }}">
-                        <i class="fas fa-fw fa-chart-area"></i>
+                        <i class="fas fa-fw fa-list-alt"></i>
                         <span>Service Categories</span>
                     </a>
                 </li>
@@ -349,7 +350,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Sevex Groupe <?php echo date("Y"); ?> | Tous droits réservés</span>
           </div>
         </div>
       </footer>
@@ -413,6 +414,7 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
         <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+        @livewireScripts
 
     </body>
 
