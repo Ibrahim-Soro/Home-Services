@@ -4,7 +4,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-2 text-gray-800"><i class="fas fa-fw fa-list-alt"></i> Nouvelle catégorie de service</h1>
+            <h1 class="h3 mb-2 text-gray-800"><i class="fas fa-fw fa-list-alt"></i> Edition de la catégorie</h1>
             <a href="{{ route('admin.service_categories') }}" class="btn bg-gradient-info btn-sm btn-icon-split">
                 <span class="icon text-white">
                     {{-- <i class="fas fa-check"></i> --}}
@@ -21,10 +21,10 @@
         <!-- DataTables Example -->
         <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary text-center text-capitalize">Formulaire d'ajout d'une catégorie de service</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-center text-capitalize">Formulaire d'édition de la catégorie ...</h6>
         </div>
         <div class="card-body">
-            <form class="form-horizontal" wire:submit.prevent="createNewCategory">
+            <form class="form-horizontal" wire:submit.prevent="updateServiceCategory">
                 @csrf
                 <div class="form-group row d-flex justify-content-center">
                     <label for="name" class="font-weight-bold text-dark col-sm-3">Nom de catégorie :</label>
@@ -49,14 +49,16 @@
                 <div class="form-group row d-flex justify-content-center">
                     <label for="image" class="font-weight-bold text-dark col-sm-3">Image :</label>
                     <div class="col-sm-7">
-                        <input class="form-control-file" type="file" name="image" id="image" wire:model="image">
-                        @error('image')
+                        <input class="form-control-file" type="file" name="image" id="image" wire:model="newimage">
+                        @error('newimage')
                             <p class="text-danger">
                                 {{ $message }}
                             </p>
                         @enderror
-                        @if ($image)
-                            <img src="{{ $image->temporaryUrl() }}" alt="" width="60">
+                        @if ($newimage)
+                            <img src="{{ $newimage->temporaryUrl() }}" alt="" width="60">
+                        @else
+                            <img src="{{ asset("images/categories") }}/{{ $image }}" alt="" width="60">
                         @endif
                     </div>
                 </div>
@@ -67,7 +69,7 @@
                             <span class="icon text-white">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text text-white">Enregistrer</span>
+                            <span class="text text-white">Mettre à jour</span>
                         </button>
                     </div>
                 </div>

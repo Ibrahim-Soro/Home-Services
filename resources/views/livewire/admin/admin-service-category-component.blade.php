@@ -63,7 +63,7 @@
                     {{-- <td>{{ date_format($category->created_at, "D M Y") }}</td> --}}
                     <td>Créé le {{ date('d/m/Y à H:i', strtotime($category->created_at)) }}</td>
                     <td>
-                        <a href="#" title="Modifier" class="btn bg-gradient-secondary btn-circle">
+                        <a href="{{ route('admin.edit_service_category', ['category_id' => $category->id]) }}" title="Modifier" class="btn bg-gradient-secondary btn-circle">
                             <i class="fas fa-edit text-white"></i>
                         </a>
                         <a href="#" title="Supprimer" class="btn bg-gradient-danger btn-circle ml-2">
