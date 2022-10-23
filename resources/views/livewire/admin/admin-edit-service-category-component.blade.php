@@ -15,7 +15,7 @@
         </div>
 
         @if (Session::has('message'))
-            <div class="alert alert-success" role="alert"> {{ Session::get('message') }}</div>
+            <div class="alert alert-success font-weight-bold" role="alert"><i class="fas fa-check-circle fa-lg"></i>&nbsp;{{ Session::get('message') }} <a href="{{ route("admin.service_categories") }}">Voir dans la liste des catégories</a></div>
         @endif
 
         <!-- DataTables Example -->

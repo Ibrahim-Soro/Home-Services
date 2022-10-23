@@ -22,6 +22,9 @@
             </a>
         </div>
 
+        @if (Session::has('message'))
+            <div class="alert alert-success font-weight-bold" role="alert"><i class="fas fa-check-circle fa-lg"></i>&nbsp;{{ Session::get('message') }}</div>
+        @endif
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -66,7 +69,7 @@
                         <a href="{{ route('admin.edit_service_category', ['category_id' => $category->id]) }}" title="Modifier" class="btn bg-gradient-secondary btn-circle">
                             <i class="fas fa-edit text-white"></i>
                         </a>
-                        <a href="#" title="Supprimer" class="btn bg-gradient-danger btn-circle ml-2">
+                        <a href="#" title="Supprimer" class="btn bg-gradient-danger btn-circle ml-2" onclick="confirm('Attention! Vous êtes sur le point de supprimer cette catégorie !') || event.stopImmediatePropagation()" wire:click.prevent="deleteServiceCategory({{ $category->id }})">
                             <i class="fas fa-trash text-white"></i>
                         </a>
                     </td>

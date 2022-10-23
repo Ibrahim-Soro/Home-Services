@@ -10,6 +10,16 @@ class AdminServiceCategoryComponent extends Component
 {
     use WithPagination;
 
+    public function deleteServiceCategory($id)
+    {
+        $service_category = ServiceCategory::find($id);
+        if ($service_category->image) {
+            unlink('images/categories'. '/' .$service_category->image);
+        }
+        $service_category->delete();
+        session()->flash('message', 'Catégorie supprimée avec succès !');
+    }
+
     public function render()
     {
         $s_categories = ServiceCategory::paginate(10);
