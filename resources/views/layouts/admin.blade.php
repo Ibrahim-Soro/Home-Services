@@ -48,7 +48,7 @@
                 </li>
 
                 <!-- Nav Item - Service Categories -->
-                <li class="nav-item {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') ? 'active':'' }}">
+                <li class="nav-item {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') || Request::routeIs('admin.edit_service_category') ? 'active':'' }}">
                     <a class="nav-link" href="{{ route('admin.service_categories') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>Service Categories</span>

@@ -6,7 +6,7 @@
                 <h1>Tous nos services</h1>
                 <div class="crumbs">
                     <ul>
-                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="{{ route('home') }}">Accueil</a></li>
                         <li>/</li>
                         <li>Categories de Service</li>
                     </ul>
@@ -33,7 +33,7 @@
                             <li>
                                 <div class="item-service-line">
                                     <i class="fa">
-                                        <a href="#">
+                                        <a href="{{ route('home.services_by_category', ['category_slug' => $category->slug]) }}">
                                             <img class="icon-img"
                                                 src="{{ asset('images/categories') }}/{{ $category->image }}" alt="AC">
                                             </a>
