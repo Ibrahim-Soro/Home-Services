@@ -13,9 +13,8 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-2 text-gray-800"><i class="fas fa-fw fa-handshake"></i> Tous les services</h1>
-            <a href="#" class="btn bg-gradient-success btn-sm btn-icon-split">
+            <a href="{{ route('admin.add_service') }}" class="btn bg-gradient-success btn-sm btn-icon-split">
                 <span class="icon text-white">
-                    {{-- <i class="fas fa-check"></i> --}}
                     <i class="fas fa-plus-square"></i>
                 </span>
                 <span class="text text-white">Nouveau Service</span>
@@ -66,7 +65,7 @@
                             <img src="{{ asset('images/services') }}/{{ $service->image }}" alt="{{ $service->name }}" width="80">
                         </td>
                         <td>{{ $service->name }}</td>
-                        <td>{{ number_format($service->price, 0, '', '.') }}<span class="font-weight-bold text-warning">fcfa</span></td>
+                        <td>{{ number_format($service->price, 0, '', '.') }}&nbsp;Fcfa</td>
                         <td>
                             @if ($service->status == 1)
                                 <p class="text-success font-weight-bold">Actif</p>
@@ -78,7 +77,7 @@
                             @if ($service->category)
                                 {{ $service->category->name }}
                             @else
-                                <span class="text-danger font-weight-bold"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;Sans Catégorie</span>
+                                <span class="text-warning font-weight-bold">Aucune</span>
                             @endif
                         </td>
                         <td>Créé le {{ date('d/m/Y à H:i', strtotime($service->created_at)) }}</td>

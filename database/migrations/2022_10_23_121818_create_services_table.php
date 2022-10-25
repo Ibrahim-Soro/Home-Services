@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->bigInteger('service_category_id')->unsigned()->nullable();
             $table->integer('price');
             $table->integer('discount')->nullable();
-            $table->enum("discount_type", ['fixed', 'percent']);
+            $table->enum("discount_type", ['fixed', 'percent'])->nullable();
             $table->string('image')->nullable();
             $table->string('thumbnail')->nullable();
             $table->longText('description')->nullable();
