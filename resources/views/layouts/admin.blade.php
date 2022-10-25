@@ -54,6 +54,12 @@
                         <span>Service Categories</span>
                     </a>
                 </li>
+                <li class="nav-item {{ Request::routeIs('admin.all_services') ? 'active':'' }}">
+                    <a class="nav-link" href="{{ route('admin.all_services') }}">
+                        <i class="fas fa-fw fa-handshake"></i>
+                        <span>Services </span>
+                    </a>
+                </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
