@@ -65,12 +65,17 @@
                     <td>{{ $category->slug }}</td>
                     <td>Créé le {{ date('d/m/Y à H:i', strtotime($category->created_at)) }}</td>
                     <td>
-                        <a href="{{ route('admin.edit_service_category', ['category_id' => $category->id]) }}" title="Modifier" class="btn bg-gradient-secondary btn-circle">
-                            <i class="fas fa-edit text-white"></i>
-                        </a>
-                        <a href="#" title="Supprimer" class="btn bg-gradient-danger btn-circle ml-2" onclick="confirm('Attention! Vous êtes sur le point de supprimer cette catégorie !') || event.stopImmediatePropagation()" wire:click.prevent="deleteServiceCategory({{ $category->id }})">
-                            <i class="fas fa-trash text-white"></i>
-                        </a>
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ route('admin.services_by_category', ['category_slug' => $category->slug]) }}" title="Voir les articles de {{ $category->name }} " class="btn btn-sm bg-gradient-success btn-circle">
+                                <i class="fas fa-eye text-white"></i>
+                            </a>
+                            <a href="{{ route('admin.edit_service_category', ['category_id' => $category->id]) }}" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle ml-2">
+                                <i class="fas fa-edit text-white"></i>
+                            </a>
+                            <a href="#" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2" onclick="confirm('Attention! Vous êtes sur le point de supprimer cette catégorie !') || event.stopImmediatePropagation()" wire:click.prevent="deleteServiceCategory({{ $category->id }})">
+                                <i class="fas fa-trash text-white"></i>
+                            </a>
+                        </div>
                     </td>
                     </tr>
                     @endforeach
