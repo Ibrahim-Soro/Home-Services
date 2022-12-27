@@ -83,7 +83,7 @@
                         <td>Créé le {{ date('d/m/Y à H:i', strtotime($service->created_at)) }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="#" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle">
+                                <a href="{{ route('admin.edit_service', ['service_slug'=> $service->slug]) }}" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle">
                                     <i class="fas fa-edit text-white"></i>
                                 </a>
                                 <a href="#" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2">

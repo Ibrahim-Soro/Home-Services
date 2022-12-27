@@ -54,7 +54,7 @@
                         <span>Service Categories</span>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::routeIs('admin.all_services') || Request::routeIs('admin.services_by_category') ? 'active':'' }}">
+                <li class="nav-item {{ Request::routeIs('admin.all_services') || Request::routeIs('admin.services_by_category') || Request::routeIs('admin.edit_service') ? 'active':'' }}">
                     <a class="nav-link" href="{{ route('admin.all_services') }}">
                         <i class="fas fa-fw fa-handshake"></i>
                         <span>Services </span>
