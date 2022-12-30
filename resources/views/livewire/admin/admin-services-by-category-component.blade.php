@@ -66,7 +66,7 @@
                                     <img src="{{ asset('images/services') }}/{{ $service->image }}" alt="{{ $service->name }}" width="80">
                                 </td>
                                 <td>{{ $service->name }}</td>
-                                <td>{{ number_format($service->price, 0, '', '.') }}<span class="font-weight-bold text-warning">fcfa</span></td>
+                                <td>{{ number_format($service->price, 0, '', '.') }} Fcfa</span></td>
                                 <td>
                                     @if ($service->status == 1)
                                         <p class="text-success font-weight-bold">Actif</p>
@@ -84,10 +84,10 @@
                                 <td>Créé le {{ date('d/m/Y à H:i', strtotime($service->created_at)) }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
-                                        <a href="#" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle">
+                                        <a href="{{ route('admin.edit_service', ['service_slug'=> $service->slug]) }}" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle">
                                             <i class="fas fa-edit text-white"></i>
                                         </a>
-                                        <a href="#" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2">
+                                        <a href="#" onclick="confirm('Vous êtes sur le point de supprimer ce service, vous en êtes sûr ?') || event.stopImmediatePropagation()" wire:click.prevenht="deleteService({{$service->id}})" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2">
                                             <i class="fas fa-trash text-white"></i>
                                         </a>
                                     </div>

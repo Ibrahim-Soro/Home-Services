@@ -86,7 +86,7 @@
                                 <a href="{{ route('admin.edit_service', ['service_slug'=> $service->slug]) }}" title="Modifier" class="btn btn-sm bg-gradient-secondary btn-circle">
                                     <i class="fas fa-edit text-white"></i>
                                 </a>
-                                <a href="#" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2">
+                                <a href="#" onclick="confirm('Êtes vous sûr de vouloir supprimer cet service ?') || event.stopImmediatePropagation()" wire:click.prevenht="deleteService({{$service->id}})" title="Supprimer" class="btn btn-sm bg-gradient-danger btn-circle ml-2">
                                     <i class="fas fa-trash text-white"></i>
                                 </a>
                             </div>

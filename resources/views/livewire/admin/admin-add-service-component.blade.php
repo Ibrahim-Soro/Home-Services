@@ -92,7 +92,7 @@
                 <div class="form-group row d-flex justify-content-center">
                     <label for="discount" class="font-weight-bold text-dark col-sm-3">Remise :</label>
                     <div class="col-sm-7">
-                        <input class="form-control" type="text" name="discount" id="discount" wire:model="discount">
+                        <input class="form-control" type="number" name="discount" id="discount" wire:model="discount" placeholder="50% (remise en pourcentage) ou 10 000 (Remise fixe)">
                         @error('discount')
                             <p class="text-danger">
                                 {{ $message }}
