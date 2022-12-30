@@ -29,6 +29,7 @@ class AdminEditServiceComponent extends Component
     public $newthumbnail;
     public $newimage;
     public $service_id;
+    public $featured;
 
 
 
@@ -48,6 +49,7 @@ class AdminEditServiceComponent extends Component
         $this->description = $service->description;
         $this->inclusion = str_replace('|', '\n', $service->inclusion);
         $this->exclusion = str_replace('|', '\n', $service->exclusion);
+        $this->featured = $service->featured;
     }
 
     public function generateSlug()
@@ -114,6 +116,7 @@ class AdminEditServiceComponent extends Component
         $service->description = $this->description;
         $service->inclusion = str_replace("\n", '|', trim($this->inclusion));
         $service->exclusion = str_replace("\n", '|', trim($this->exclusion));
+        $service->featured = $this->featured;
 
         if ($this->newthumbnail) {
             unlink('images/services/thumbnails'.'/'.$service->thumbnail);

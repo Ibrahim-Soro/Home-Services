@@ -152,6 +152,7 @@
                         @enderror
                     </div>
                 </div>
+                {{-- Image --}}
                 <div class="form-group row d-flex justify-content-center">
                     <label for="image" class="font-weight-bold text-dark col-sm-3">Image :</label>
                     <div class="col-sm-7">
@@ -168,6 +169,7 @@
                         @endif
                     </div>
                 </div>
+                {{-- Thumbnail --}}
                 <div class="form-group row d-flex justify-content-center">
                     <label for="thumbnail" class="font-weight-bold text-dark col-sm-3">Thumbnail :</label>
                     <div class="col-sm-7">
@@ -182,6 +184,21 @@
                         @else
                             <img src="{{ asset('images/services/thumbnails') }}/{{ $thumbnail }}" alt="" width="60">
                         @endif
+                    </div>
+                </div>
+                {{-- Featured --}}
+                <div class="form-group row d-flex justify-content-center">
+                    <label for="featured" class="font-weight-bold text-dark col-sm-3">En vedette :</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" type="text" name="featured" id="featured" wire:model="featured">
+                            <option value="0">Non</option>
+                            <option value="1">Oui</option>
+                        </select>
+                        @error('featured')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row d-flex justify-content-center">

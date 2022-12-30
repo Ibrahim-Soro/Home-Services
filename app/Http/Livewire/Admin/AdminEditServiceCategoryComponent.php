@@ -17,6 +17,8 @@ class AdminEditServiceCategoryComponent extends Component
     public $slug;
     public $image;
     public $newimage;
+    public $featured;
+
 
     public function mount($category_id)
     {
@@ -25,6 +27,7 @@ class AdminEditServiceCategoryComponent extends Component
         $this->name =  $service_category->name;
         $this->slug = $service_category->slug;
         $this->image = $service_category->image;
+        $this->featured = $service_category->featured;
     }
 
     public function generateSlug()
@@ -66,6 +69,7 @@ class AdminEditServiceCategoryComponent extends Component
             $this->newimage->storeAs('categories', $imageName);
             $service_category->image = $imageName;
         }
+        $service_category->featured = $this->featured;
         $service_category->save();
         session()->flash('message', 'Catégorie mise à jour avec succès !');
     }

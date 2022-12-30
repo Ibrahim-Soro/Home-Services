@@ -40,6 +40,7 @@
                     <th>Image</th>
                     <th>Nom de catégorie</th>
                     <th>Slug</th>
+                    <th>En vedette</th>
                     <th>Date de création</th>
                     <th>Actions</th>
                 </tr>
@@ -50,6 +51,7 @@
                     <th>Image</th>
                     <th>Nom de catégorie</th>
                     <th>Slug</th>
+                    <th>En vedette</th>
                     <th>Date de création</th>
                     <th>Actions</th>
                 </tr>
@@ -63,6 +65,13 @@
                     </td>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->slug }}</td>
+                    <td>
+                        @if ($category->featured)
+                            Oui
+                        @else
+                            Non
+                        @endif
+                    </td>
                     <td>Créé le {{ date('d/m/Y à H:i', strtotime($category->created_at)) }}</td>
                     <td>
                         <div class="d-flex justify-content-center">

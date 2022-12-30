@@ -63,6 +63,21 @@
                     </div>
                 </div>
                 <div class="form-group row d-flex justify-content-center">
+                    <label for="featured" class="font-weight-bold text-dark col-sm-3">En vedette :</label>
+                    <div class="col-sm-7">
+
+                        <select class="form-control" name="featured" id="featured" wire:model="featured">
+                            <option value="0">Non</option>
+                            <option value="1">Oui</option>
+                        </select>
+                        @error('featured')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row d-flex justify-content-center">
                     <label disabled class="col-sm-3"></label>
                     <div class="col-sm-7">
                         <button type="submit" class="btn bg-gradient-success btn-icon-split">

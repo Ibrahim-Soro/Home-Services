@@ -65,80 +65,31 @@
                 <div class="container">
                     <div class="row">
                         <div class="titles">
-                            <h2>SurfsideMedia <span>Choice</span> of Services</h2>
-                            <i class="fa fa-plane"></i>
+                            <h2>Meilleurs <span>Services</span></h2>
+                            <i class="fa fa-briefcase"></i>
                             <hr class="tall">
                         </div>
                     </div>
                     <div class="portfolioContainer" style="margin-top: -50px;">
-                        <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
-                            style="padding-right: 5px;padding-left: 5px;">
-                            <a class="g-list" href="service-details/ac-dry-servicing.html">
-                                <div class="img-hover">
-                                    <img src="{{ asset('images/services/thumbnails/thumbnail.jpg') }}" alt="AC Dry Servicing"
-                                        class="img-responsive">
-                                </div>
-                                <div class="info-gallery">
-                                    <h3>AC Dry Servicing</h3>
-                                    <hr class="separator">
-                                    <p>AC Dry Servicing</p>
-                                    <div class="content-btn"><a href="service-details/ac-dry-servicing.html"
-                                            class="btn btn-primary">Book Now</a></div>
-                                    <div class="price"><span>&#36;</span><b>From</b>300</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
-                            style="padding-right: 5px;padding-left: 5px;">
-                            <a class="g-list" href="service-details/ac-installation.html">
-                                <div class="img-hover">
-                                    <img src="{{ asset('images/services/thumbnails/thumbnail.jpg') }}" alt="AC Installation"
-                                        class="img-responsive">
-                                </div>
-                                <div class="info-gallery">
-                                    <h3>AC Installation</h3>
-                                    <hr class="separator">
-                                    <p>AC Installation</p>
-                                    <div class="content-btn"><a href="service-details/ac-installation.html"
-                                            class="btn btn-primary">Book Now</a></div>
-                                    <div class="price"><span>&#36;</span><b>From</b>320</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
-                            style="padding-right: 5px;padding-left: 5px;">
-                            <a class="g-list" href="service-details/ac-gas-top-up.html">
-                                <div class="img-hover">
-                                    <img src="{{ asset('images/services/thumbnails/thumbnail.jpg') }}" alt="AC Gas Top Up"
-                                        class="img-responsive">
-                                </div>
-                                <div class="info-gallery">
-                                    <h3>AC Gas Top Up</h3>
-                                    <hr class="separator">
-                                    <p>AC Gas Top Up</p>
-                                    <div class="content-btn"><a href="service-details/ac-gas-top-up.html"
-                                            class="btn btn-primary">Book Now</a></div>
-                                    <div class="price"><span>&#36;</span><b>From</b>320</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
-                            style="padding-right: 5px;padding-left: 5px;">
-                            <a class="g-list" href="service-details/ac-gas-refill.html">
-                                <div class="img-hover">
-                                    <img src="{{ asset('images/services/thumbnails/thumbnail.jpg') }}" alt="AC Gas Refill"
-                                        class="img-responsive">
-                                </div>
-                                <div class="info-gallery">
-                                    <h3>AC Gas Refill</h3>
-                                    <hr class="separator">
-                                    <p>AC Gas Refill</p>
-                                    <div class="content-btn"><a href="service-details/ac-gas-refill.html"
-                                            class="btn btn-primary">Book Now</a></div>
-                                    <div class="price"><span>&#36;</span><b>From</b>510</div>
-                                </div>
-                            </a>
-                        </div>
+                        @foreach ($featured_service as $service)
+                            <div class="col-xs-6 col-sm-4 col-md-3 hsgrids"
+                                style="padding-right: 5px;padding-left: 5px;">
+                                <a class="g-list" href="{{route('home.service_details', ['service_slug'=>$service->slug])}}">
+                                    <div class="img-hover">
+                                        <img src="{{ asset('images/services/thumbnails') }}/{{$service->thumbnail}} " alt="{{$service->name}}"
+                                            class="img-responsive">
+                                    </div>
+                                    <div class="info-gallery">
+                                        <h3>{{$service->name}}</h3>
+                                        <hr class="separator">
+                                        <p>{{$service->name}}</p>
+                                        <div class="content-btn"><a href="{{route('home.service_details', ['service_slug'=>$service->slug])}}"
+                                                class="btn btn-primary">Réservez maintenant</a></div>
+                                        <div class="price"><b><small>Dès</small>  {{ number_format($service->price, '0', '', ' ')}} Fcfa</b></div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -149,89 +100,28 @@
                     <div class="row">
                         <div class="col-md-4 ">
                             <div class="services-lines-info">
-                                <h2>WELCOME TO DIVERSIFIED</h2>
+                                <h2 class="text-uppercase">UN SERVICE DE QUALITé DIVERSIFIé</h2>
                                 <p class="lead">
-                                    Book best services at one place.
+                                    Réservez les meilleurs services en un seul clic.
                                     <span class="line"></span>
                                 </p>
 
-                                <p>Find a wide variety of home services.</p>
+                                <p>Retrouvez une variété de nos services à domicile.</p>
                             </div>
                         </div>
                         <div class="col-md-8">
                             <ul class="services-lines">
-                                <li>
-                                    <a href="servicesbycategory/1.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>AC</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/3.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Plumbing</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/4.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Electrical</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/6.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Home Cleaning</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/8.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Pest Control</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/11.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Computer Repair</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/12.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>TV</h5>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="servicesbycategory/13.html">
-                                        <div class="item-service-line">
-                                            <i class="fa"><img class="icon-img"
-                                                    src="{{ asset('images/sercat/service-icon.png') }}"></i>
-                                            <h5>Refrigerator</h5>
-                                        </div>
-                                    </a>
-                                </li>
+                                @foreach ($featured_services_categories as $category)
+                                    <li>
+                                        <a href="{{route('home.services_by_category', ['category_slug'=>$category->slug])}}">
+                                            <div class="item-service-line">
+                                                <i class="fa"><img class="icon-img"
+                                                        src="{{ asset('images/categories') }}/{{$category->image}}"></i>
+                                                <h5>{{$category->name}}</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

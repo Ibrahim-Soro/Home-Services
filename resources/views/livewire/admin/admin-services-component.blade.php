@@ -41,6 +41,7 @@
                     <th>Prix</th>
                     <th>Statut</th>
                     <th>Catégorie</th>
+                    <th>En vedette</th>
                     <th>Date de création</th>
                     <th>Actions</th>
                 </tr>
@@ -53,6 +54,7 @@
                     <th>Prix</th>
                     <th>Statut</th>
                     <th>Catégorie</th>
+                    <th>En vedette</th>
                     <th>Date de création</th>
                     <th>Actions</th>
                 </tr>
@@ -78,6 +80,13 @@
                                 {{ $service->category->name }}
                             @else
                                 <span class="text-warning font-weight-bold">Aucune</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($service->featured)
+                                Oui
+                            @else
+                                Non
                             @endif
                         </td>
                         <td>Créé le {{ date('d/m/Y à H:i', strtotime($service->created_at)) }}</td>
