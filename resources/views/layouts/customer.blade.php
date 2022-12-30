@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Home Service - Espace Admin</title>
+        <title>Home Service - Espace Client</title>
 
         <!-- Custom fonts for this template-->
         <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -33,29 +33,29 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-2">Espace Admin</div>
+                <div class="sidebar-brand-text mx-2">Espace Client</div>
                 </a>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item {{ Request::routeIs('admin.dashboard') ? 'active':'' }}">
-                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <!-- Nav Item - Service Categories -->
-                <li class="nav-item {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') || Request::routeIs('admin.edit_service_category') ? 'active':'' }}">
-                    <a class="nav-link" href="{{ route('admin.service_categories') }}">
+                <li class="nav-item <!-- {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') || Request::routeIs('admin.edit_service_category') ? 'active':'' }} -->">
+                    <a class="nav-link" href="<!-- {{ route('admin.service_categories') }} -->">
                         <i class="fas fa-fw fa-list-alt"></i>
                         <span>Service Categories</span>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::routeIs('admin.all_services') || Request::routeIs('admin.services_by_category') || Request::routeIs('admin.edit_service') ? 'active':'' }}">
-                    <a class="nav-link" href="{{ route('admin.all_services') }}">
+                <li class="nav-item #">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-fw fa-handshake"></i>
                         <span>Services </span>
                     </a>

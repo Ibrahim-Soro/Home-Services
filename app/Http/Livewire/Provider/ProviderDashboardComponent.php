@@ -8,6 +8,6 @@ class ProviderDashboardComponent extends Component
 {
     public function render()
     {
-        return view('livewire.provider.provider-dashboard-component')->layout('layouts.admin');
+        return view('livewire.provider.provider-dashboard-component')->layout('layouts.provider');
     }
 }
