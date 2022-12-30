@@ -57,7 +57,7 @@
 
                 <ul class="collapse">
                     <li class="title">
-                        <a href="index.php.html"><img src="{{ asset('images/logo.png') }}"></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('images/logo.png') }}"></a>
                     </li>
                     <li><a href="{{ route('home.service_categories') }}">Catégorie de service</a></li>
                     {{-- <li> <a href="javascript:void(0);">Air Conditioners</a>
