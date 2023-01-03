@@ -51,13 +51,23 @@
                 <li class="nav-item {{ Request::routeIs('admin.service_categories') || Request::routeIs('admin.add_service_category') || Request::routeIs('admin.edit_service_category') ? 'active':'' }}">
                     <a class="nav-link" href="{{ route('admin.service_categories') }}">
                         <i class="fas fa-fw fa-list-alt"></i>
-                        <span>Service Categories</span>
+                        <span>Catégories</span>
                     </a>
                 </li>
+
+                <!-- Nav Item - Services -->
                 <li class="nav-item {{ Request::routeIs('admin.all_services') || Request::routeIs('admin.services_by_category') || Request::routeIs('admin.edit_service') ? 'active':'' }}">
                     <a class="nav-link" href="{{ route('admin.all_services') }}">
                         <i class="fas fa-fw fa-handshake"></i>
                         <span>Services </span>
+                    </a>
+                </li>
+
+                <!-- Nav Item - Slides -->
+                <li class="nav-item {{ Request::routeIs('admin.slide') || Request::routeIs('admin.add_slide') || Request::routeIs('admin.edit_slide') ? 'active':'' }}">
+                    <a class="nav-link" href="{{ route('admin.slide') }}">
+                        <i class="fas fa-fw fa-images"></i>
+                        <span>Slides </span>
                     </a>
                 </li>
 
@@ -99,50 +109,6 @@
                             <a class="collapse-item" href="utilities-other.html">Other</a>
                         </div>
                     </div>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                Addons
-                </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Login Screens:</h6>
-                            <a class="collapse-item" href="login.html">Login</a>
-                            <a class="collapse-item" href="register.html">Register</a>
-                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Other Pages:</h6>
-                            <a class="collapse-item" href="404.html">404 Page</a>
-                            <a class="collapse-item" href="blank.html">Blank Page</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span>
-                    </a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Tables</span>
-                    </a>
                 </li>
 
                 <!-- Divider -->
