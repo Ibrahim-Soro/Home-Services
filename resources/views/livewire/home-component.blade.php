@@ -35,12 +35,11 @@
                 <p class="lead">Réservez un service à un tarif très abordable,</p>
             </div>
             <div class="filter-header">
-                <form id="sform" action="searchservices" method="post">
-                    <input type="text" id="q" name="q" required="required" placeholder="What Services do you want?"
+                <form id="sform" action="{{ route('searchService')}}" method="post">
+                     @csrf
+                    <input type="text" id="q" name="q" required="required" placeholder="Quelle prestation souhaitez-vous ?"
                         class="input-large typeahead" autocomplete="off">
-                    <div class="d-flex justify-content">
-                        <input type="submit" name="submit" value="Search">
-                    </div>
+                    <input type="submit" name="submit" value="Rechercher">
                 </form>
             </div>
         </div>
@@ -102,6 +101,10 @@
                                 </a>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="content-btn d-flex justify-content-center" style="padding: 5px; margin-bottom:2rem; display:flex; justify-content:center">
+                        <a href="#{{-- {{route("home.all_services")}} --}}"
+                        class="btn btn-primary">voir tous nos services</a>
                     </div>
                 </div>
             </div>
@@ -174,3 +177,19 @@
     </section>
     {{-- Main content --}}
 </div>
+
+
+@push('scripts')
+<script type="text/javascript">
+    var path = "{{route('autocomplete')}}";
+    $('input.typeahead').typeahead({
+        source: function (query, process) {
+            return $.get(path,{query:query}, function (data) {
+                return process(data);
+            });
+        }
+    });
+</script>
+@endpush
+
+
