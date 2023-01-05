@@ -126,7 +126,7 @@
                                 {{-- SSERVICES PROVIDERS LINKS --}}
                                 <li class="login-form"> <a href="#" title="Register">Mon Espace Fournisseur</a>
                                      <ul class="drop-down one-column hover-fade">
-                                        <li><a href="{{ route('provider.dashboard') }}" target="_blank">Dashboard</a></li>
+                                        <li><a href="{{ route('provider.profile') }}" target="_blank">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
                                     </ul>
                                 </li>

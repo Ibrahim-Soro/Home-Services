@@ -29,38 +29,31 @@
                         @endif
                         <form wire:submit.prevent="ChangeLocation">
                             @csrf
-                            <div class="col-md-8">
-                                <h3>Chercher votre adresse</h3>
-                                <p class="lead">
-                                </p>
-                                <input type="text" class="form-control" id="autocomplete" name="location"
-                                    placeholder="Search Location....">
-                                <div id="map" style="height: 400px;"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <aside class="addlocation">
-                                    <h4>Votre adresse<input type="submit" class="btn btn-primary pull-right"
-                                            name="submit" value="Ajouter votre adresse"></h4>
-                                    <address>
-
-                                        <div class="form-group">
-                                            <label for="neighborhood" class="col-form-label">Quartier:</label>
-                                            <input type="text" class="form-control" id="neighborhood" name="neighborhood" wire:model="neighborhood">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="city" class="col-form-label">Ville:</label>
-                                            <input type="text" class="form-control" id="city" name="city" wire:model="city">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="common" class="col-form-label">Commune:</label>
-                                            <input type="text" class="form-control" id="common" name="common" wire:model="common">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="country" class="col-form-label">Pays:</label>
-                                            <input type="text" class="form-control" id="country" name="country" wire:model="country">
-                                        </div>
-                                    </address>
-                                </aside>
+                            <div class="" style="display: flex; justify-content: center;">
+                                <div class="col-md-8">
+                                    <aside class="addlocation" >
+                                        <h3>Votre adresse<input type="submit" class="btn btn-primary pull-right"
+                                                name="submit" value="Ajouter votre adresse"></h3>
+                                        <address>
+                                            <div class="form-group">
+                                                <label for="country" class="col-form-label">Pays:</label>
+                                                <input type="text" class="form-control" id="country" name="country" wire:model="country">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="city" class="col-form-label">Ville:</label>
+                                                <input type="text" class="form-control" id="city" name="city" wire:model="city">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="common" class="col-form-label">Commune:</label>
+                                                <input type="text" class="form-control" id="common" name="common" wire:model="common">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="neighborhood" class="col-form-label">Quartier:</label>
+                                                <input type="text" class="form-control" id="neighborhood" name="neighborhood" wire:model="neighborhood">
+                                            </div>
+                                        </address>
+                                    </aside>
+                                </div>
                             </div>
                         </form>
                     </div>
