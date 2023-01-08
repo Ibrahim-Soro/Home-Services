@@ -6,6 +6,7 @@ use App\Http\Livewire\Admin\AdminEditSlideComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
 use App\Http\Livewire\ChangeLocationComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\Provider\EditProviderProfileComponent;
 use App\Http\Livewire\Provider\ProviderProfileComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ServiceDetailsComponent;
@@ -58,6 +59,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified', 'authprovider'])->group(function(){
     Route::get('/provider/dashboard', ProviderDashboardComponent::class)->name('provider.dashboard');
     Route::get('/provider/profile', ProviderProfileComponent::class)->name('provider.profile');
+    Route::get('/provider/profile/edit', EditProviderProfileComponent::class)->name('provider.edit_profile');
 });
 
 // For Admin
