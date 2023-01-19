@@ -48,77 +48,44 @@
                     <li class="title">
                         <a href="{{route('home')}}"><img src="{{ asset('images/logo.png') }}"></a>
                     </li>
-                    <li><a href="{{ route('home.service_categories') }}">Catégorie de service</a></li>
-                    {{-- <li> <a href="javascript:void(0);">Air Conditioners</a>
+                    <li>
+                        @php
+                            use App\Models\ServiceCategory;
+                            use App\Models\Service;
+                            $service_categories = ServiceCategory::all();
+                            $service_category_id = ServiceCategory::whereIn('slug', ['electricite', 'refrigerateur', 'television', 'climatisation', 'pressing', 'geyser'])->get()->pluck('id');
+                            $all_services = Service::whereIn('service_category_id', $service_category_id)->inRandomOrder()->take(8)->get();
+                        @endphp
+                        <a href="{{ route('home.service_categories') }}">Catégories</a>
                         <ul class="drop-down one-column hover-fade">
-                            <li><a href="service-details/ac-wet-servicing.html">Wet Servicing</a></li>
-                            <li><a href="service-details/ac-dry-servicing.html">Dry Servicing</a></li>
-                            <li><a href="service-details/ac-installation.html">Installation</a></li>
-                            <li><a href="service-details/ac-uninstallation.html">Uninstallation</a></li>
-                            <li><a href="service-details/ac-gas-top-up.html">Gas Top Up</a></li>
-                            <li><a href="service-details/ac-gas-refill.html">Gas Refill</a></li>
-                            <li><a href="service-details/ac-repair.html">Repair</a></li>
-                        </ul>
-                    </li> --}}
-                    <li> <a href="#">Appliances</a>
-                        <ul class="drop-down one-column hover-fade">
-                            <li><a href="servicesbycategory/11.html">Computer Repair</a></li>
-                            <li><a href="servicesbycategory/12.html">TV</a></li>
-                            <li><a href="servicesbycategory/1.html">AC</a></li>
-                            <li><a href="servicesbycategory/14.html">Geyser</a></li>
-                            <li><a href="servicesbycategory/21.html">Washing Machine</a></li>
-                            <li><a href="servicesbycategory/22.html">Microwave Oven</a></li>
-                            <li><a href="servicesbycategory/9.html">Chimney and Hob</a></li>
-                            <li><a href="servicesbycategory/10.html">Water Purifier</a></li>
-                            <li><a href="servicesbycategory/13.html">Refrigerator</a></li>
+                            @foreach ($service_categories as $category)
+                                <li><a href="{{ route('home.services_by_category', ['category_slug'=>$category->slug]) }}">{{ $category->name }}</a></li>
+                            @endforeach
+
                         </ul>
                     </li>
-                    <li> <a href="#">Home Needs</a>
+                    <li>
+                        <a href="javascript:void(0);">Electromanager</a>
                         <ul class="drop-down one-column hover-fade">
-                            <li><a href="servicesbycategory/19.html">Laundry</a></li>
-                            <li><a href="servicesbycategory/4.html">Electrical</a></li>
-                            <li><a href="servicesbycategory/8.html">Pest Control</a></li>
-                            <li><a href="servicesbycategory/7.html">Carpentry</a></li>
-                            <li><a href="servicesbycategory/3.html">Plumbing </a></li>
-                            <li><a href="servicesbycategory/20.html">Painting</a></li>
-                            <li><a href="servicesbycategory/17.html">Movers &amp; Packers</a></li>
-                            <li><a href="servicesbycategory/5.html">Shower Filters </a></li>
+                            @foreach ($all_services as $service)
+                                <li><a href="{{ route('home.service_details', ['service_slug'=>$service->slug]) }}">{{ $service->name }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li> <a href="#">Home Cleaning</a>
-                        <ul class="drop-down one-column hover-fade">
-                            <li><a href="service-details/bedroom-deep-cleaning.html">Bedroom Deep Cleaning</a></li>
-                            <li><a href="service-details/overhead-water-storage.html">Overhead Water Storage </a></li>
-                            <li><a href="/service-details/tank-cleaning">Tank Cleaning</a></li>
-                            <li><a href="service-details/underground-sump-cleaning.html">Underground Sump Cleaning</a>
-                            </li>
-                            <li><a href="service-details/dining-chair-shampooing.html">Dining Chair Shampooing </a></li>
-                            <li><a href="service-details/office-chair-shampooing.html">Office Chair Shampooing</a></li>
-                            <li><a href="service-details/home-deep-cleaning.html">Home Deep Cleaning </a></li>
-                            <li><a href="service-details/carpet-shampooing.html">Carpet Shampooing </a></li>
-                            <li><a href="service-details/fabric-sofa-shampooing.html">Fabric Sofa Shampooing</a></li>
-                            <li><a href="service-details/bathroom-deep-cleaning.html">Bathroom Deep Cleaning</a></li>
-                            <li><a href="service-details/floor-scrubbing-polishing.html">Floor Scrubbing &amp; Polishing
-                                </a></li>
-                            <li><a href="service-details/mattress-shampooing.html">Mattress Shampooing </a></li>
-                            <li><a href="service-details/kitchen-deep-cleaning.html">Kitchen Deep Cleaning </a></li>
-                        </ul>
+                    <li>
+                        <a href="#">Qui sommes nous</a>
                     </li>
-                    <li> <a href="#">Special Services</a>
-                        <ul class="drop-down one-column hover-fade">
-                            <li><a href="servicesbycategory/16.html">Document Services</a></li>
-                            <li><a href="servicesbycategory/15.html">Cars &amp; Bikes</a></li>
-                            <li><a href="servicesbycategory/17.html">Movers &amp; Packers </a></li>
-                            <li><a href="servicesbycategory/18.html">Home Automation</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{ route('home.contact_us') }}">Contactez-nous</a>
                     </li>
+
                     @if(Route::has('login'))
                         @auth
                             @if (Auth::user()->utype === "ADM")
                                 {{-- ADMIN LINKS --}}
                                 <li class="login-form"> <a href="#" title="Register">Mon Espace d'Administration</a>
                                      <ul class="drop-down one-column hover-fade">
-                                        <li><a href="{{ route('admin.dashboard') }}" target="_blank">Dashboard</a></li>
+                                        <li><a href="{{ route('admin.dashboard') }}" target="_blank"><i class="fa fa-tachometer" aria-hidden="true"></i>  Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
                                     </ul>
                                 </li>
@@ -144,8 +111,8 @@
                                 @csrf
                             </form>
                         @else
-                            <li class="login-form"> <a href="{{ route('register') }}" title="Register">S'inscrire</a></li>
-                            <li li class="login-form"> <a href="{{ route('login') }}" title="Login">Se connecter</a></li>
+                            <li class="login-form"> <a href="{{ route('register') }}" title="Register"><i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire</a></li>
+                            <li li class="login-form"> <a href="{{ route('login') }}" title="Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Se connecter</a></li>
                         @endauth
                     @endif
 

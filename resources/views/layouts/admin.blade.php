@@ -71,6 +71,14 @@
                     </a>
                 </li>
 
+                <!-- Nav Item - Contacts -->
+                <li class="nav-item {{ Request::routeIs('admin.contacts') ? 'active':'' }}">
+                    <a class="nav-link" href="{{ route('admin.contacts') }}">
+                        <i class="fas fa-fw fa-address-book"></i>
+                        <span>Contacts </span>
+                    </a>
+                </li>
+
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 

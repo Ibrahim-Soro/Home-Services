@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Admin\AdminAddSlideComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditSlideComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
 use App\Http\Livewire\ChangeLocationComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\Provider\EditProviderProfileComponent;
 use App\Http\Livewire\Provider\ProviderProfileComponent;
@@ -44,6 +46,7 @@ Route::get('/service-categories', ServiceCategoriesComponent::class)->name('home
 Route::get('/{category_slug}/services', ServicesByCategoryComponent::class)->name('home.services_by_category');
 Route::get('/service/{service_slug}', ServiceDetailsComponent::class)->name('home.service_details');
 Route::get('/change-location', ChangeLocationComponent::class)->name('home.change_location');
+Route::get('/contact-us', ContactComponent::class)->name('home.contact_us');
 
 /* Search Routes */
 Route::get('/autocomplete',[SearchController::class,'autocomplete'])->name('autocomplete');
@@ -78,4 +81,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/slider', AdminSliderComponent::class)->name('admin.slide');
     Route::get('/admin/slide/add', AdminAddSlideComponent::class)->name('admin.add_slide');
     Route::get('/admin/slide/edit/{slide_id}', AdminEditSlideComponent::class)->name('admin.edit_slide');
+    // Contacts
+    Route::get('/admin/contacts', AdminContactComponent::class)->name('admin.contacts');
 });
