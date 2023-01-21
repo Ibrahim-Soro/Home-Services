@@ -11,7 +11,7 @@ class AdminContactComponent extends Component
     use WithPagination;
     public function render()
     {
-        $contacts = Contact::paginate(15);
+        $contacts = Contact::orderByDesc('created_at')->paginate(12);
         return view('livewire.admin.admin-contact-component', [
             'contacts' => $contacts,
         ])->layout('layouts.admin');

@@ -4,6 +4,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Admin\AdminAddSlideComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditSlideComponent;
+use App\Http\Livewire\Admin\AdminServiceProvidersComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
 use App\Http\Livewire\ChangeLocationComponent;
 use App\Http\Livewire\ContactComponent;
@@ -83,4 +84,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/slide/edit/{slide_id}', AdminEditSlideComponent::class)->name('admin.edit_slide');
     // Contacts
     Route::get('/admin/contacts', AdminContactComponent::class)->name('admin.contacts');
+    // Providers
+    Route::get('/admin/service-providers', AdminServiceProvidersComponent::class)->name('admin.service_providers');
 });

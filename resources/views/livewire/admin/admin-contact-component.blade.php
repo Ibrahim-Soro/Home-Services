@@ -12,13 +12,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-2 text-gray-800"><i class="fas fa-fw fa-handshake"></i> Tous les services</h1>
-            <a href="{{ route('admin.add_service') }}" class="btn bg-gradient-success btn-sm btn-icon-split">
-                <span class="icon text-white">
-                    <i class="fas fa-plus-square"></i>
-                </span>
-                <span class="text text-white">Nouveau Service</span>
-            </a>
+            <h1 class="h3 mb-2 text-gray-800"><i class="fas fa-fw fa-comments"></i> Messages</h1>
         </div>
 
         <!-- DataTales Example -->
@@ -40,17 +34,6 @@
                     <th>Action</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                    <th>#</th>
-                    <th>Image</th>
-                    <th>Adresse mail</th>
-                    <th>Contact</th>
-                    <th>Message</th>
-                    <th>Date de réception</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
                 <tbody>
                     @foreach($contacts as $contact)
                     <tr>

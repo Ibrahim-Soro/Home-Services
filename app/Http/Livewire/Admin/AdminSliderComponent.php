@@ -19,7 +19,7 @@ class AdminSliderComponent extends Component
     }
     public function render()
     {
-        $slides = Slider::paginate(10);
+        $slides = Slider::orderByDesc('created_at')->paginate(10);
         return view('livewire.admin.admin-slider-component', [
             'slides' => $slides,
         ])->layout('layouts.admin');

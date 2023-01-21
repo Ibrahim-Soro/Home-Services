@@ -25,7 +25,7 @@ class AdminServicesComponent extends Component
 
     public function render()
     {
-        $services = Service::paginate(10);
+        $services = Service::orderByDesc('created_at')->paginate(10);
         return view('livewire.admin.admin-services-component', [
             'services' => $services,
         ])->layout('layouts.admin');

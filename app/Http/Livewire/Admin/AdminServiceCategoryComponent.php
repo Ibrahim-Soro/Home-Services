@@ -22,7 +22,7 @@ class AdminServiceCategoryComponent extends Component
 
     public function render()
     {
-        $s_categories = ServiceCategory::paginate(10);
+        $s_categories = ServiceCategory::orderByDesc('created_at')->paginate(10);
         return view('livewire.admin.admin-service-category-component', [
             's_categories' => $s_categories,
         ])->layout('layouts.admin');
